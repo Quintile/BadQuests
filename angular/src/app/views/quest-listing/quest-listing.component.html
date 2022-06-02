@@ -1,0 +1,27 @@
+<div class="container">
+    <form [formGroup]="form">
+        <label>Quest Name</label>
+        <input type="text" class="mb-3 form-control" placeholder="Name of quest" formControlName="name">
+
+        <label>Quest Zone</label>
+        <input type="text" class="mb-3 form-control" placeholder="Ashenvale" formControlName="zone">
+
+        <label>Explanation????</label>
+        <textarea formControlName="explanation" class="form-control"></textarea>
+    </form>
+
+
+    <button class="btn btn-primary" (click)="onSave()" [disabled]="form.invalid">Save</button>
+</div>
+
+
+<div class="container">
+    <h1 class="text-center">AMAZING BAD QUESTS</h1>
+    <ul>
+        <li *ngFor="let quest of badQuests">
+            <div class="quest">{{quest.name}}</div>
+            <div class="zone">{{quest.zone}}</div>
+            <div class="explanation">{{quest.explanation || 'No Explanation'}}</div>
+        </li>
+    </ul>
+</div>
